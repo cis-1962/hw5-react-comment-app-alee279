@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './app.tsx';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import CommentTree from './CommentTree.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <CommentTree level={0}/>
   </React.StrictMode>,
-);
+)

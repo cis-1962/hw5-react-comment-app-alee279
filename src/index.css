@@ -66,3 +66,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.Name {
+  font-size: 1em;
+  color: #2e8cff;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.Post {
+  font-size: 1em;
+  line-height: 1;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
