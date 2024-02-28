@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Comment from './Comment';
 import { CommentData } from './types';
 import CommentForm from './CommentForm';
+import PostForm from './PostForm';
 
 
 function CommentTree({ level }: {level: number}) {
@@ -9,30 +10,17 @@ function CommentTree({ level }: {level: number}) {
   function addComment(comment: CommentData) {
     setComments([...comments, comment])
   }
-
-  const [reply, setReply] = useState(false)
   
   return (
     <>
       <div>
-      {level === 0 && <CommentForm onAdd={(addComment)}/>}
+      {level === 0 && <PostForm onAdd={(addComment)}/>}
+      {level > 0 && <CommentForm onAdd={(addComment)}/>}
       <div/>
         <ul>
         {comments.map((comment) => (
           <div key={comment.id}>
-            <Comment comment={comment} level={level} />
-            {!reply && (
-              <button onClick={() => setReply(!reply)}>
-                Reply
-              </button>
-            )}
-            {reply && <>
-              <CommentForm onAdd={addComment} />
-              <button onClick={() => setReply(!reply)}>
-                Cancel
-              </button>
-              </>
-            }
+            <Comment comment={comment} level={level}/>
           </div>
         ))}
 

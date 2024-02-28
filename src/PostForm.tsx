@@ -3,6 +3,7 @@ import { CommentData } from './types';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
 
@@ -10,21 +11,15 @@ type CreatePostProps = {
   onAdd: ((comment: CommentData) => void)
 };
 
-function CommentForm( { onAdd } : CreatePostProps) {
+function PostForm( { onAdd } : CreatePostProps) {
   const [name, setName] = useState("");
   const [postText, setPostText] = useState("");
-  const [reply, setReply] = useState(false)
 
   return (
     <>
-      {!reply && <Button variant="text" onClick={() => {
-              setReply(true);
-              }}>
-              Reply
-            </Button>}
-      {reply && <Card sx={{ width: 500, height: 250 }}>
+      <Card sx={{ width: 500, height: 380}}>
         <CardContent>
-          <text>write a reply.</text>
+          <Typography variant="h5">make a new post.</Typography>
           <div style={{ marginTop: '16px' }}>
             <TextField
               label="name"
@@ -37,7 +32,9 @@ function CommentForm( { onAdd } : CreatePostProps) {
           </div >
           <div style={{ marginTop: '16px' }}>
             <TextField
-            label="write your comment"
+            multiline
+            rows={6}
+            label="write your post here"
             value={postText}
             sx={{ width: '100%' }}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,28 +43,20 @@ function CommentForm( { onAdd } : CreatePostProps) {
             />
           </div>
           <div style={{ marginTop: '16px' }}>
-            <Button size="small" variant="contained" onClick={() => {
+            <Button variant="contained" onClick={() => {
                 if (postText.trim() !== '' || name.trim() !== '') {
-                  onAdd({ id: crypto.randomUUID(), name, text: postText });
-                  setName('');
-                  setPostText('');
-                  setReply(false);
+                onAdd({id: crypto.randomUUID(), name, text: postText});
+                setName("");
+                setPostText("");
                 }
               }}>
               Submit
             </Button>
-            <span style={{ margin: '0 8px' }}></span>
-            <Button size="small" variant="outlined" onClick={() => {
-              setReply(false);
-              }}>
-              Cancel
-            </Button>
             </div>
         </CardContent>
-      </Card>}
-      
+      </Card>
     </>
   )
 }
 
-export default CommentForm
+export default PostForm

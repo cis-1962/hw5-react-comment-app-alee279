@@ -25,7 +25,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -79,4 +79,26 @@ button:focus-visible {
   line-height: 1;
   font-weight: 300;
   margin-bottom: 10px;
+}
+
+.CommentContainer {
+  display: flex;
+  max-width: 500px;
+}
+
+.PostContainer {
+  flex-grow: 1; /* Take up all available space */
+  word-wrap: break-word;
+  max-width: 400px;
+  padding-right: 50px;
+}
+
+.UpvotesContainer {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.VoteButton {
+  padding: 1px;
+  font-size: 2px;
 }
