@@ -34,7 +34,7 @@ const Comment = ({ comment, level }: CommentProps) => {
         </div>
       </div>
     </div>
-      {level < 2 && <CommentTree level= { level + 1 } />}
+      {level < 2 && <CommentTree level= { level + 1 }/>}
     </>
   );
 };

@@ -8,10 +8,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <div style={{ marginTop: '100px' }}>
       <Typography variant="h2" align='center' marginBottom={3}>thread.</Typography>
-      <Typography align='center'>welcome to thread. create new posts down below.</Typography>
-      <Typography align='center' marginBottom={3}>comment and vote on posts you love. or hate. </Typography>
+      <Typography align='center'>welcome to thread. create new threads down below.</Typography>
+      <Typography align='center' marginBottom={5}>comment and vote on threads you love. or hate. </Typography>
       <div>
-        <CommentTree level={0} />
+        <CommentTree level={0}/>
       </div>
     </div>
   </React.StrictMode>,
